@@ -12,7 +12,7 @@ app.get('/teste', (req, res) => {
          });
 })
 
-
+/*
 app.get('/users/:id', (req, res) => {
 
     const { id } = req.params;
@@ -21,6 +21,27 @@ app.get('/users/:id', (req, res) => {
          message: `user ${id}`,
          contat: '11-000-0000'
          });
+})
+
+app.get('/user/:id', (req, res) => {
+
+    const { id } = req.params;
+
+    return res.json({
+         message: `user ${id}`,
+         contat: '11-000-0000'
+         });
+})
+*/
+const users = ['Di', 'Dolla', 'Mony']
+
+app.get('/users/:index', (req, res) => {
+
+    const { index } = req.params;
+
+    return res.json(
+         users[index]
+         );
 })
 
 app.listen(3000);
