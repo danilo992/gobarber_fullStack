@@ -6,6 +6,14 @@ app.use(express.json());
 
 const users = ['car', 'file', 'package'];
 
+app.use((req, res, next) => {
+    console.time('Request');
+    console.log(`Método: ${req.method}; URL: ${req.url}`);
+
+    next();
+    console.timeEnd('Request');
+})
+
 app.get('/users', (req, res) => {
     return res.json(users);
 })
